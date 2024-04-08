@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "c8cae277-5042-475b-a39b-5c45eab2b36b",
+		"name": "Assestment CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "806268"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"cperez@gmail.com\",\r\n    \"password\":\"48514520Eg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Message",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZmMxYzM0Mi01Y2NkLTRlMTEtOTg1Ni0wZWY2MWUzZjg2ZWYiLCJpYXQiOjE3MTI1OTQ3MDQsImV4cCI6MTcxMjU5NTAwNH0.eBEL10auDUR3sw_JznG0Gh6nHaabpWkCzowmuoKobes",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"type\": \"attachment\",\r\n      \"status\": \"received\",\r\n      \"time\": \"01-04-2024\",\r\n      \"messageId\": \"message5\",\r\n      \"conversationId\": \"conversation3\",\r\n      \"geo\": {\r\n        \"name\": \"coordinates\",\r\n        \"lat\": 18.52,\r\n        \"long\": 23.51\r\n      }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/message/send",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"type\": \"attachment5\",\r\n      \"status\": \"sent\",\r\n      \"time\": \"08-04-2024\",\r\n      \"messageId\": \"message6\",\r\n      \"conversationId\": \"conversation3\",\r\n      \"geo\": {\r\n        \"name\": \"coordinates\",\r\n        \"lat\": 18.52,\r\n        \"long\": 23.51\r\n      }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/message/update/75789c57-4c95-4ba6-a814-7ece9c175e73",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"update",
+						"75789c57-4c95-4ba6-a814-7ece9c175e73"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZmMxYzM0Mi01Y2NkLTRlMTEtOTg1Ni0wZWY2MWUzZjg2ZWYiLCJpYXQiOjE3MTI1OTUzNjcsImV4cCI6MTcxMjU5NTY2N30.fnnnvxu8d1a5CQzpb-0Vm_v7dp-jNhzYFBp8EjtSEYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/message/delete/75789c57-4c95-4ba6-a814-7ece9c175e73",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"delete",
+						"75789c57-4c95-4ba6-a814-7ece9c175e73"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GETALL",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZmMxYzM0Mi01Y2NkLTRlMTEtOTg1Ni0wZWY2MWUzZjg2ZWYiLCJpYXQiOjE3MTI1OTU3MDEsImV4cCI6MTcxMjU5NjAwMX0.tgrnR9emE-zCTPCQiNSOVKh-OoCwVU7HCTWmbatmwP8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/message/getall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GETALL_SENT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZmMxYzM0Mi01Y2NkLTRlMTEtOTg1Ni0wZWY2MWUzZjg2ZWYiLCJpYXQiOjE3MTI1OTU3MDEsImV4cCI6MTcxMjU5NjAwMX0.tgrnR9emE-zCTPCQiNSOVKh-OoCwVU7HCTWmbatmwP8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/message/getall?send=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"getall"
+					],
+					"query": [
+						{
+							"key": "send",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GETALL_RECEIVED",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5ZmMxYzM0Mi01Y2NkLTRlMTEtOTg1Ni0wZWY2MWUzZjg2ZWYiLCJpYXQiOjE3MTI1OTU3MDEsImV4cCI6MTcxMjU5NjAwMX0.tgrnR9emE-zCTPCQiNSOVKh-OoCwVU7HCTWmbatmwP8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/message/getall?send=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"getall"
+					],
+					"query": [
+						{
+							"key": "send",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

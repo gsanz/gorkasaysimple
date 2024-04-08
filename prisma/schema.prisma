@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Message {
+	id              String      @id @default(uuid())    @unique
+	type            String      @db.VarChar(100)        @map("type")
+  status          String?     @db.VarChar(100)        @map("status")
+  time            String?     @db.VarChar(100)        @map("time")
+  messageId       String?     @db.VarChar(100)        @map("message_id")
+  conversationId  String?     @db.VarChar(100)        @map("conversation_id")
+  url             String?     @db.VarChar(50)         @map("url")
+  geo             Json?                               @map("geo")
+  message         String?     @db.VarChar(50)         @map("message")
+  variables       String?     @db.VarChar(500)
+  send            Boolean     @default(true)
+  active          Boolean     @default(true)
+  @@map("message")
+}
+
+model User {
+	id              String      @id @default(uuid()) @unique
+	firstname       String      @db.VarChar(100) @map("first_name")
+  lastname        String?      @db.VarChar(100) @map("last_name")
+  email           String     @db.VarChar(100) @map("email") @unique
+  password        String      @db.VarChar(100)
+  active          Boolean     @default(true)
+  @@map("user")
+}
